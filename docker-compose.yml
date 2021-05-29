@@ -1,0 +1,81 @@
+version: '2'
+services:
+    56.dap.test:
+        restart: 'no'
+        extends:
+            service: 56.dap.test
+            file: dap/docker-compose.yml
+        depends_on:
+            - mysql.dap.test
+            - openldap
+
+    70.dap.test:
+        restart: 'no'
+        extends:
+            service: 70.dap.test
+            file: dap/docker-compose.yml
+        depends_on:
+            - mysql.dap.test
+            - openldap
+            
+    72.dap.test:
+        restart: 'no'
+        extends:
+            service: 72.dap.test
+            file: dap/docker-compose.yml
+        depends_on:
+            - mysql.dap.test
+            - openldap
+            
+    73.dap.test:
+        restart: 'no'
+        extends:
+            service: 73.dap.test
+            file: dap/docker-compose.yml
+        depends_on:
+            - mysql.dap.test
+            - openldap
+
+    74.dap.test:
+        restart: 'no'
+        extends:
+            service: 74.dap.test
+            file: dap/docker-compose.yml
+        depends_on:
+            - mysql.dap.test
+            - openldap
+
+    80.dap.test:
+        restart: 'no'
+        extends:
+            service: 80.dap.test
+            file: dap/docker-compose.yml
+        depends_on:
+            - mysql8.dap.test
+            - openldap
+
+    mysql.dap.test:
+        restart: 'no'
+        extends:
+            service: mysql.dap.test
+            file: dap/docker-compose.yml
+
+    mysql8.dap.test:
+        restart: 'no'
+        extends:
+            service: mysql8.dap.test
+            file: dap/docker-compose.yml
+
+    openldap:
+        restart: 'no'
+        extends:
+            service: openldap
+            file: openldap/docker-compose.yml
+
+    phpldapadmin:
+        restart: 'no'
+        extends:
+            service: phpldapadmin
+            file: openldap/docker-compose.yml
+        depends_on:
+          - openldap
